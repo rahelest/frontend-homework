@@ -5,7 +5,7 @@ type Props = {
 
 const MenuLink = ({ icon, text }: Props) => (
   <div>
-    <i className="material-icons">
+    <i className="material-icons-outlined">
       {icon}
     </i>
 
