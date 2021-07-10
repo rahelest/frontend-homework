@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import _colors from './stylesheets/variables/_colors'
 
 type Props = {
   text: string,
@@ -20,6 +21,7 @@ export default MenuLink
 
 const Link = styled.div`
   align-items: center;
+  cursor: pointer;
   display: flex;
   font-size: 16px;
   justify-content: flex-start;
@@ -31,5 +33,13 @@ const Link = styled.div`
   i {
     font-size: 20px;
     margin-right: 8px;
+  }
+  
+  &:hover {
+    background-color: ${_colors.grey1};
+  }
+  
+  &:active {
+    background-color: ${_colors.grey2};
   }
 `
