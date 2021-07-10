@@ -22,7 +22,7 @@ exports[`<DropdownMenu /> renders menu 1`] = `
       icon="settings"
       text="Settings"
     />
-    <MenuLink
+    <Styled(MenuLink)
       icon="exit_to_app"
       text="Log out"
     />

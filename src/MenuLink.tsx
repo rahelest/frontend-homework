@@ -3,10 +3,11 @@ import styled from '@emotion/styled'
 type Props = {
   text: string,
   icon: string,
+  className?: string
 }
 
-const MenuLink = ({ icon, text }: Props) => (
-  <Link>
+const MenuLink = ({ icon, text, className }: Props) => (
+  <Link className={className}>
     <i className="material-icons-outlined">
       {icon}
     </i>

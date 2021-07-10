@@ -30,7 +30,7 @@ const DropdownMenu = () => (
         icon="settings"
       />
 
-      <MenuLink
+      <LogoutLink
         text="Log out"
         icon="exit_to_app"
       />
@@ -58,4 +58,7 @@ const Dropdown = styled.div`
 const Group = styled.div`
   border-top: 1px solid #e2e2e2;
   padding: 4px 0 3px;
+`
+const LogoutLink = styled(MenuLink)`
+  color: ${_colors.red};
 `
