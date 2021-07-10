@@ -2,9 +2,9 @@
 
 exports[`<Companies /> renders list of company links 1`] = `
 <Fragment>
-  <div>
+  <Styled(div)>
     Your companies
-  </div>
+  </Styled(div)>
   <CompanyLink
     id={1}
     key="1"

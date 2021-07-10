@@ -1,11 +1,13 @@
+import styled from '@emotion/styled'
 import MenuLink from './MenuLink'
 import Companies from './Companies'
+import _colors from './stylesheets/variables/_colors'
 
 const DropdownMenu = () => (
-  <div>
+  <Dropdown>
     <Companies />
 
-    <div>
+    <Group>
       <MenuLink
         text="Get the mobile app"
         icon="phone_iphone"
@@ -20,9 +22,9 @@ const DropdownMenu = () => (
         text="Knowledge base"
         icon="book"
       />
-    </div>
+    </Group>
 
-    <div>
+    <Group>
       <MenuLink
         text="Settings"
         icon="settings"
@@ -32,8 +34,28 @@ const DropdownMenu = () => (
         text="Log out"
         icon="exit_to_app"
       />
-    </div>
-  </div>
+    </Group>
+  </Dropdown>
 )
 
 export default DropdownMenu
+
+const Dropdown = styled.div`
+  background: ${_colors.white};
+  border: 1px solid #dcdce0;
+  box-shadow: 0 2px 8px rgba(51, 51, 51, 0.24);
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  min-width: 302px;
+
+  position: absolute;
+  top: 70px;
+  right: 14px;
+`
+
+const Group = styled.div`
+  border-top: 1px solid #e2e2e2;
+  padding: 4px 0 3px;
+`

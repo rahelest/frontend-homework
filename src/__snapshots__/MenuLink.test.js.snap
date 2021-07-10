@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<MenuLink /> renders link 1`] = `
-<div>
+<Styled(div)>
   <i
     className="material-icons-outlined"
   >
     phone
   </i>
   Call me
-</div>
+</Styled(div)>
 `;
