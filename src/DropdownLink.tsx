@@ -6,6 +6,8 @@ import { getIsDropdownMenuVisible, getSelectedCompany } from './selectors'
 import { toggleDropdownMenuVisibility } from './actions'
 
 import DropdownMenu from './DropdownMenu'
+import useClickOutside from './useClickOutside'
+import { useRef } from 'react'
 
 type ReduxProps = {
   selectedCompany: Company
@@ -13,34 +15,34 @@ type ReduxProps = {
 }
 
 type DispatchProps = {
-  toggleDropdownMenuVisibility: () => void,
+  toggleDropdownMenuVisibility: () => void
 }
 
 export const DropdownLink = ({
   selectedCompany,
   isDropdownMenuVisible,
   toggleDropdownMenuVisibility,
-}: ReduxProps & DispatchProps) => (
-  <>
-    <div className="nav__link" onClick={toggleDropdownMenuVisibility} data-test-nav-link>
-      <div className="nav__link-text-wrapper">
-        <div className="nav__link-text">
-          Elon Musk
+}: ReduxProps & DispatchProps) => {
+  const ref = useRef()
+  useClickOutside(ref, isDropdownMenuVisible, toggleDropdownMenuVisibility)
+
+  return (
+    // @ts-ignore
+    <div ref={ref}>
+      <div className="nav__link" onClick={toggleDropdownMenuVisibility} data-test-nav-link>
+        <div className="nav__link-text-wrapper">
+          <div className="nav__link-text">Elon Musk</div>
+
+          <div className="nav__link-subtext">{selectedCompany.name}</div>
         </div>
 
-        <div className="nav__link-subtext">
-          {selectedCompany.name}
-        </div>
+        <i className="material-icons-outlined nav__link-icon">settings</i>
       </div>
 
-      <i className="material-icons-outlined nav__link-icon">
-        settings
-      </i>
+      {isDropdownMenuVisible && <DropdownMenu />}
     </div>
-
-    {isDropdownMenuVisible && <DropdownMenu />}
-  </>
-)
+  )
+}
 
 export default connect(
   createStructuredSelector<ReduxState, ReduxProps>({
@@ -48,5 +50,5 @@ export default connect(
     selectedCompany: getSelectedCompany,
     isDropdownMenuVisible: getIsDropdownMenuVisible,
   }),
-  { toggleDropdownMenuVisibility }
+  { toggleDropdownMenuVisibility },
 )(DropdownLink)
