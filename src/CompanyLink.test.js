@@ -3,12 +3,14 @@ import { CompanyLink } from './CompanyLink'
 
 describe('<CompanyLink />', () => {
   const setSelectedCompanyIdMock = jest.fn()
+  const toggleDropdownMenuVisibilityMock = jest.fn()
 
   const render = (props) =>
     shallow(
       <CompanyLink
         company={{ id: 1, name: 'Dummy company' }}
         setSelectedCompanyId={setSelectedCompanyIdMock}
+        toggleDropdownMenuVisibility={toggleDropdownMenuVisibilityMock}
         {...props}
       />,
     )
@@ -21,10 +23,11 @@ describe('<CompanyLink />', () => {
     expect(render({ isSelected: true })).toMatchSnapshot()
   })
 
-  it('calls setSelectedCompanyId when company link is clicked', () => {
+  it('calls setSelectedCompanyId and toggleDropdownMenuVisibility when company link is clicked', () => {
     const component = render({ isSelected: false })
     component.find('[data-test-company-link]').simulate('click')
 
     expect(setSelectedCompanyIdMock).toHaveBeenCalled()
+    expect(toggleDropdownMenuVisibilityMock).toHaveBeenCalled()
   })
 })

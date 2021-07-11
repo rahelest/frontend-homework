@@ -3,7 +3,7 @@ import { rgba } from 'emotion-rgba'
 import _colors from './stylesheets/variables/_colors'
 import { connect } from 'react-redux'
 import { isCompanySelected } from './selectors'
-import { setSelectedCompanyId } from './actions'
+import { setSelectedCompanyId, toggleDropdownMenuVisibility } from './actions'
 import { Company, ReduxState } from './types'
 import { createStructuredSelector } from 'reselect'
 
@@ -17,14 +17,21 @@ type ReduxProps = {
 
 type DispatchProps = {
   setSelectedCompanyId: (id: number) => void
+  toggleDropdownMenuVisibility: () => void
 }
 
 export const CompanyLink = ({
   company,
   isSelected,
   setSelectedCompanyId,
+  toggleDropdownMenuVisibility,
 }: OwnProps & ReduxProps & DispatchProps) => {
   const { id, name } = company
+
+  const selectAndClose = () => {
+    setSelectedCompanyId(id)
+    toggleDropdownMenuVisibility()
+  }
 
   if (isSelected) {
     return (
@@ -35,7 +42,7 @@ export const CompanyLink = ({
   }
 
   return (
-    <Name onClick={() => setSelectedCompanyId(id)} data-test-company-link>
+    <Name onClick={selectAndClose} data-test-company-link>
       {name}
     </Name>
   )
@@ -46,7 +53,7 @@ export default connect(
     // @ts-ignore
     isSelected: isCompanySelected,
   }),
-  { setSelectedCompanyId },
+  { setSelectedCompanyId, toggleDropdownMenuVisibility },
 )(CompanyLink)
 
 const Name = styled.div`
