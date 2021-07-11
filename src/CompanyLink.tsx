@@ -1,5 +1,6 @@
 import { Company } from './types'
 import styled from '@emotion/styled'
+import { rgba } from 'emotion-rgba'
 import _colors from './stylesheets/variables/_colors'
 
 type ExtraProp = {
@@ -43,7 +44,7 @@ const Name = styled.div`
 `
 
 const SelectedName = styled(Name)`
-  background-color: rgba(55, 164, 71, 0.1);
+  background-color: ${rgba(_colors.green, 0.1)};
   color: ${_colors.darkGreen};
   cursor: default;
 
@@ -53,6 +54,6 @@ const SelectedName = styled(Name)`
 
   &:hover,
   &:active {
-    background-color: rgba(55, 164, 71, 0.2);
+    background-color: ${rgba(_colors.green, 0.2)};
   }
 `
