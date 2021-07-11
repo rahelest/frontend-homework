@@ -5,24 +5,29 @@ exports[`<DropdownMenu /> renders menu 1`] = `
   <Connect(Companies) />
   <Styled(div)>
     <MenuLink
+      href="https://eagronom.com/en/mobile-app/"
       icon="phone_iphone"
       text="Get the mobile app"
     />
     <MenuLink
+      href="https://www.facebook.com/pg/eagronom/community/"
       icon="people"
       text="Community"
     />
     <MenuLink
+      href="https://help.eagronom.com/en/"
       icon="book"
       text="Knowledge base"
     />
   </Styled(div)>
   <Styled(div)>
     <MenuLink
+      href="/settings"
       icon="settings"
       text="Settings"
     />
     <Styled(MenuLink)
+      href="/log-out"
       icon="exit_to_app"
       text="Log out"
     />

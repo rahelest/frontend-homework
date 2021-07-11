@@ -4,11 +4,12 @@ import _colors from './stylesheets/variables/_colors'
 type Props = {
   text: string,
   icon: string,
+  href: string,
   className?: string
 }
 
-const MenuLink = ({ icon, text, className }: Props) => (
-  <Link className={className}>
+const MenuLink = ({ icon, text, href, className }: Props) => (
+  <Link className={className} href={href}>
     <i className="material-icons-outlined">
       {icon}
     </i>
@@ -19,8 +20,9 @@ const MenuLink = ({ icon, text, className }: Props) => (
 
 export default MenuLink
 
-const Link = styled.div`
+const Link = styled.a`
   align-items: center;
+  color: inherit;
   cursor: pointer;
   display: flex;
   font-size: 16px;
@@ -28,6 +30,7 @@ const Link = styled.div`
   padding: 6px 16px;
   margin: 4px 0;
   letter-spacing: 0.1px;
+  text-decoration: none;
 
 
   i {

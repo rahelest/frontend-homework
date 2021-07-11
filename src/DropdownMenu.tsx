@@ -11,16 +11,19 @@ const DropdownMenu = () => (
       <MenuLink
         text="Get the mobile app"
         icon="phone_iphone"
+        href="https://eagronom.com/en/mobile-app/"
       />
 
       <MenuLink
         text="Community"
         icon="people"
+        href="https://www.facebook.com/pg/eagronom/community/"
       />
 
       <MenuLink
         text="Knowledge base"
         icon="book"
+        href="https://help.eagronom.com/en/"
       />
     </Group>
 
@@ -28,11 +31,13 @@ const DropdownMenu = () => (
       <MenuLink
         text="Settings"
         icon="settings"
+        href="/settings"
       />
 
       <LogoutLink
         text="Log out"
         icon="exit_to_app"
+        href="/log-out"
       />
     </Group>
   </Dropdown>
