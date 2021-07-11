@@ -2,7 +2,9 @@
 
 exports[`<MenuLink /> renders link 1`] = `
 <Styled(a)
+  data-test-menu-link={true}
   href="/abc"
+  onClick={[MockFunction]}
   target="_self"
 >
   <i
@@ -16,7 +18,9 @@ exports[`<MenuLink /> renders link 1`] = `
 
 exports[`<MenuLink /> renders link with a provided target 1`] = `
 <Styled(a)
+  data-test-menu-link={true}
   href="/abc"
+  onClick={[MockFunction]}
   target="_blank"
 >
   <i

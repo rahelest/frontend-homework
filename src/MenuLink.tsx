@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
 import _colors from './stylesheets/variables/_colors'
+import { connect } from 'react-redux'
+import { toggleDropdownMenuVisibility } from './actions'
 
 type Props = {
   text: string
@@ -9,17 +11,32 @@ type Props = {
   className?: string
 }
 
-const MenuLink = ({ icon, text, href, target = "_self", className }: Props) => (
-  <Link className={className} href={href} target={target}>
-    <i className="material-icons-outlined">
-      {icon}
-    </i>
+type DispatchProps = {
+  toggleDropdownMenuVisibility: () => void
+}
+
+export const MenuLink = ({
+  icon,
+  text,
+  href,
+  target = '_self',
+  className,
+  toggleDropdownMenuVisibility,
+}: Props & DispatchProps) => (
+  <Link
+    className={className}
+    href={href}
+    target={target}
+    onClick={toggleDropdownMenuVisibility}
+    data-test-menu-link
+  >
+    <i className="material-icons-outlined">{icon}</i>
 
     {text}
   </Link>
 )
 
-export default MenuLink
+export default connect(undefined, { toggleDropdownMenuVisibility })(MenuLink)
 
 const Link = styled.a`
   align-items: center;
