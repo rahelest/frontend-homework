@@ -1,6 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CompanyLink /> renders link 1`] = `
+exports[`<CompanyLink /> renders link with checkbox when company is selected 1`] = `
+<Styled(div)>
+  Dummy company
+   
+  <i
+    className="material-icons-outlined"
+  >
+    check
+  </i>
+</Styled(div)>
+`;
+
+exports[`<CompanyLink /> renders name when company is not selected 1`] = `
 <Styled(div)>
   Dummy company
 </Styled(div)>
