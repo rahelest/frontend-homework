@@ -5,7 +5,7 @@ exports[`<Companies /> renders list of company links 1`] = `
   <Styled(div)>
     Your companies
   </Styled(div)>
-  <CompanyLink
+  <Connect(CompanyLink)
     company={
       Object {
         "id": 1,
@@ -14,7 +14,7 @@ exports[`<Companies /> renders list of company links 1`] = `
     }
     key="1"
   />
-  <CompanyLink
+  <Connect(CompanyLink)
     company={
       Object {
         "id": 2,

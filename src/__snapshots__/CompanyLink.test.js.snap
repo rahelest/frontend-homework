@@ -13,7 +13,10 @@ exports[`<CompanyLink /> renders link with checkbox when company is selected 1`]
 `;
 
 exports[`<CompanyLink /> renders name when company is not selected 1`] = `
-<Styled(div)>
+<Styled(div)
+  data-test-company-link={true}
+  onClick={[Function]}
+>
   Dummy company
 </Styled(div)>
 `;

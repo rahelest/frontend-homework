@@ -17,6 +17,7 @@ export const Companies = ({ companies }: ReduxProps) => (
     <Title>Your companies</Title>
 
     {companies.map((company) => (
+      // @ts-ignore
       <CompanyLink key={company.id} company={company} />
     ))}
   </>

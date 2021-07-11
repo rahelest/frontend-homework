@@ -1,18 +1,30 @@
-import { Company } from './types'
 import styled from '@emotion/styled'
 import { rgba } from 'emotion-rgba'
 import _colors from './stylesheets/variables/_colors'
+import { connect } from 'react-redux'
+import { isCompanySelected } from './selectors'
+import { setSelectedCompanyId } from './actions'
+import { Company, ReduxState } from './types'
+import { createStructuredSelector } from 'reselect'
 
 type OwnProps = {
   company: Company
 }
 
-type ExtraProp = {
-  isSelected?: boolean
+type ReduxProps = {
+  isSelected: boolean
 }
 
-export const CompanyLink = ({ company, isSelected }: OwnProps & ExtraProp) => {
-  const { name } = company
+type DispatchProps = {
+  setSelectedCompanyId: (id: number) => void
+}
+
+export const CompanyLink = ({
+  company,
+  isSelected,
+  setSelectedCompanyId,
+}: OwnProps & ReduxProps & DispatchProps) => {
+  const { id, name } = company
 
   if (isSelected) {
     return (
@@ -22,10 +34,20 @@ export const CompanyLink = ({ company, isSelected }: OwnProps & ExtraProp) => {
     )
   }
 
-  return <Name>{name}</Name>
+  return (
+    <Name onClick={() => setSelectedCompanyId(id)} data-test-company-link>
+      {name}
+    </Name>
+  )
 }
 
-export default CompanyLink
+export default connect(
+  createStructuredSelector<ReduxState, ReduxProps>({
+    // @ts-ignore
+    isSelected: isCompanySelected,
+  }),
+  { setSelectedCompanyId },
+)(CompanyLink)
 
 const Name = styled.div`
   display: flex;
