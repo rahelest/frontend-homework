@@ -3,6 +3,21 @@
 exports[`<MenuLink /> renders link 1`] = `
 <Styled(a)
   href="/abc"
+  target="_self"
+>
+  <i
+    className="material-icons-outlined"
+  >
+    phone
+  </i>
+  Call me
+</Styled(a)>
+`;
+
+exports[`<MenuLink /> renders link with a provided target 1`] = `
+<Styled(a)
+  href="/abc"
+  target="_blank"
 >
   <i
     className="material-icons-outlined"

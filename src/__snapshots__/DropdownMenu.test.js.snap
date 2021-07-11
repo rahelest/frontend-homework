@@ -7,16 +7,19 @@ exports[`<DropdownMenu /> renders menu 1`] = `
     <MenuLink
       href="https://eagronom.com/en/mobile-app/"
       icon="phone_iphone"
+      target="_blank"
       text="Get the mobile app"
     />
     <MenuLink
       href="https://www.facebook.com/pg/eagronom/community/"
       icon="people"
+      target="_blank"
       text="Community"
     />
     <MenuLink
       href="https://help.eagronom.com/en/"
       icon="book"
+      target="_blank"
       text="Knowledge base"
     />
   </Styled(div)>

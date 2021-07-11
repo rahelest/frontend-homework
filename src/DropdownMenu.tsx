@@ -12,18 +12,21 @@ const DropdownMenu = () => (
         text="Get the mobile app"
         icon="phone_iphone"
         href="https://eagronom.com/en/mobile-app/"
+        target="_blank"
       />
 
       <MenuLink
         text="Community"
         icon="people"
         href="https://www.facebook.com/pg/eagronom/community/"
+        target="_blank"
       />
 
       <MenuLink
         text="Knowledge base"
         icon="book"
         href="https://help.eagronom.com/en/"
+        target="_blank"
       />
     </Group>
 
