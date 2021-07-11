@@ -1,8 +1,4 @@
-import {
-  getIsDropdownMenuVisible,
-  isCompanySelected,
-  getCompanies,
-} from './selectors'
+import { getCompanies, getIsDropdownMenuVisible, getSelectedCompany, isCompanySelected } from './selectors'
 
 describe('getIsDropdownMenuVisible()', () => {
   const state = { isDropdownMenuVisible: true }
@@ -29,5 +25,17 @@ describe('getCompanies()', () => {
 
   it('returns value from state', () => {
     expect(getCompanies(state)).toEqual([{ id: 1, name: 'Dummy company' }])
+  })
+})
+
+describe('getSelectedCompany()', () => {
+  it('returns value from state', () => {
+    const state = { companies: [{ id: 1, name: 'Dummy company' }], selectedCompanyId: 1 }
+    expect(getSelectedCompany(state)).toEqual({ id: 1, name: 'Dummy company' })
+  })
+
+  it('returns nothing when selected company is not found', () => {
+    const state = { companies: [{ id: 1, name: 'Dummy company' }], selectedCompanyId: 5 }
+    expect(getSelectedCompany(state)).toEqual(undefined)
   })
 })

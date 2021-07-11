@@ -4,12 +4,14 @@ import { DropdownLink } from './DropdownLink'
 describe('<DropdownLink />', () => {
   const toggleDropdownMenuVisibilityMock = jest.fn()
 
-  const render = (props) => shallow(
-    <DropdownLink
-      toggleDropdownMenuVisibility={toggleDropdownMenuVisibilityMock}
-      {...props}  
-    />
-  )
+  const render = (props) =>
+    shallow(
+      <DropdownLink
+        selectedCompany={{ id: 1, name: 'Dummy company' }}
+        toggleDropdownMenuVisibility={toggleDropdownMenuVisibilityMock}
+        {...props}
+      />,
+    )
 
   it('renders without dropdown menu', () => {
     expect(render({ isDropdownMenuVisible: false })).toMatchSnapshot()
