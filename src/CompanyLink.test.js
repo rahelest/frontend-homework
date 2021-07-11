@@ -1,8 +1,9 @@
 import { shallow } from 'enzyme'
-import CompanyLink from './CompanyLink'
+import { CompanyLink } from './CompanyLink'
 
 describe('<CompanyLink />', () => {
-  const render = (props) => shallow(<CompanyLink id={1} name='Dummy company' {...props} />)
+  const render = (props) =>
+    shallow(<CompanyLink company={{ id: 1, name: 'Dummy company' }} {...props} />)
 
   it('renders name when company is not selected', () => {
     expect(render({ isSelected: false })).toMatchSnapshot()

@@ -3,11 +3,17 @@ import styled from '@emotion/styled'
 import { rgba } from 'emotion-rgba'
 import _colors from './stylesheets/variables/_colors'
 
+type OwnProps = {
+  company: Company
+}
+
 type ExtraProp = {
   isSelected?: boolean
 }
 
-const CompanyLink = ({ name, isSelected }: Company & ExtraProp) => {
+export const CompanyLink = ({ company, isSelected }: OwnProps & ExtraProp) => {
+  const { name } = company
+
   if (isSelected) {
     return (
       <SelectedName>
